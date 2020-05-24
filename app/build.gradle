@@ -8,7 +8,7 @@ android {
         applicationId "com.supercilex.poiandroid.demo"
         minSdkVersion minSdk
         targetSdkVersion targetSdk
-        versionCode 1
+        versionCode 2
         versionName poiVersion
 
         multiDexEnabled true
@@ -33,19 +33,30 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
+
+    def removeLibs = {
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: "org.codehaus.woodstox", module: "stax2-api"
+    }
+
+   compileOnly  'com.fasterxml:aalto-xml:1.2.2', removeLibs
+    compileOnly "org.apache.poi:poi-ooxml:$poiVersion"
     implementation project(path: ':poi', configuration: 'compile')
     implementation project(':proguard')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation "com.android.support:design:$supportLibVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta6'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.core:core:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation "com.google.android.gms:play-services-tasks:12.0.1"
+    implementation "com.google.android.gms:play-services-tasks:17.0.2"
 
-    implementation 'pub.devrel:easypermissions:1.2.0'
+    implementation 'pub.devrel:easypermissions:3.0.0'
 }
