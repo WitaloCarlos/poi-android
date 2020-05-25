@@ -43,8 +43,6 @@ dependencies {
         exclude group: "org.codehaus.woodstox", module: "stax2-api"
     }
 
-   compileOnly  'com.fasterxml:aalto-xml:1.2.2', removeLibs
-    compileOnly "org.apache.poi:poi-ooxml:$poiVersion"
     implementation project(path: ':poi', configuration: 'compile')
     implementation project(':proguard')
 

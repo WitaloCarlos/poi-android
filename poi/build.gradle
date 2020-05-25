@@ -7,7 +7,11 @@ dependencies {
     implementation "org.apache.poi:poi-ooxml:$poiVersion"
     implementation "org.apache.poi:poi-scratchpad:$poiVersion"
     implementation 'org.apache.xmlbeans:xmlbeans:3.1.0'
-    implementation 'com.fasterxml:aalto-xml:1.2.2'
+    implementation ('com.fasterxml:aalto-xml:1.2.2') {
+        exclude group: "org.codehaus.woodstox", module: "stax2-api"
+    }
+    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans-qname', version: '2.6.0'
+    implementation group: 'javax.xml.stream', name: 'stax-api', version: '1.0-2'
 }
 
 shadowJar {
