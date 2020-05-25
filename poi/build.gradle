@@ -58,7 +58,7 @@ artifacts {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId 'com.supercilex.poiandroid'
+            groupId 'com.witalocarlos.poiandroid'
             artifactId 'poi'
             version poiVersion
 
